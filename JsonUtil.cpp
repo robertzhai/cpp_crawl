@@ -6,12 +6,12 @@
 
 #include "JsonUtil.h"
 
-bool praseJson(std::string & json, Json::Value &value) {
+bool JsonUtil::praseJson(std::string & json, Json::Value &value) {
 
 	Json::Reader reader;
 	if (false == reader.parse(json, value)) {
-		return true ;
+		return false ;
 	}
-	return false;
+	return true;
 }
 

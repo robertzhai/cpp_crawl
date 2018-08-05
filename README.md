@@ -1,3 +1,4 @@
 # cpp_crawl
 
-a cpp crawler simple project with cmake and c++11
+a cpp simple crawler project with cmake and c++11
+

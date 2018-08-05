@@ -18,7 +18,7 @@ public:
 	~JsonUtil() {
 
 	}
-	bool praseJson(std::string & json, Json::Value &value);
+	bool praseJson(std::string & json, Json::Value & value);
 
 };
 

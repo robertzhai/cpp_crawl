@@ -8,7 +8,6 @@
 #include <exception>
 #include <cstdio>
 #include "httpclient.hpp"
-#include <json/json.h>
 
 #include "JsonUtil.h"
 
