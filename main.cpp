@@ -7,38 +7,24 @@
 #include <iostream>
 #include <exception>
 #include <cstdio>
-#include "httpclient.hpp"
 
-#include "JsonUtil.h"
-
+#include "IpCn.h"
 
 using namespace std;
 
-
 int main(int argc, const char **argv) {
 
-//	std::string url = "http://f.ip.cn/rt/chnroutes.txt", apiRes = "";
-	std::string url =
-			"https://www.apiopen.top/weatherApi?city=%E5%8C%97%E4%BA%AC",
-//			"http://f.ip.cn/rt/chnroutes.txt",
-			apiRes = "";
-	HttpClient client;
-	apiRes = client.get(url);
-	std::cout << "apiRes:" << apiRes << std::endl;
+	std::cout << "main start \n";
 
-	Json::Value value;
-	JsonUtil jsonutil;
-	bool parseResult = jsonutil.praseJson(apiRes, value);
+	try {
+		IpCn ipcn;
+		ipcn.fetchStart();
 
-	if (false == parseResult) {
-		cerr << endl << "read value error \n";
-		return -1;
-	} else {
-		cout << "json util:"<< value["code"].asString() << endl;
-		cout << value["msg"].asString() << endl;
+	} catch (exception &e) {
+		std::cout << "in main catch exception " << e.what() << std::endl;
 	}
 
-	std::cout << "start with cmake: ";
+	std::cout << "main ended \n";
 
 	return 0;
 }

@@ -20,7 +20,7 @@ public:
     ~HttpClient(){
         
     }
-    std::string get(std::string & url);
+    std::string get(std::string & url, std::vector<std::string> & header);
 
     static size_t OnWriteData(void* buffer, size_t size, size_t nmemb, void* lpVoid);
 
