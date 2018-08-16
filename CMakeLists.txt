@@ -9,10 +9,14 @@ link_directories("/usr/local/lib")
 #include_directories("${PROJECT_SOURCE_DIR}/lib/curlcpp-1.1/include")
 
 include_directories("/usr/local/include")
+include_directories("/usr/local/Cellar/mysql++/3.2.3_2/include/mysql++")
+include_directories("/usr/local/Cellar/mysql@5.6/5.6.39/include/mysql")
 
 #  -ljsoncpp -lcurl
-link_libraries(curl jsoncpp)
+link_libraries(curl jsoncpp mysqlpp)
 
 file(GLOB SRCS "*.cpp"  "*.h" "*.hpp" )
 
 add_executable(ipcn ${SRCS} )
+
+#-I/usr/local/Cellar/mysql++/3.2.3_2/include/mysql++/  -I/usr/local/Cellar/mysql@5.6/5.6.39/include/mysql  -lmysqlpp

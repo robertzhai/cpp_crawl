@@ -17,6 +17,8 @@
 
 #include<typeinfo>
 
+#include "MysqlDb.h"
+
 void IpCn::fetchStart() {
 
 	std::vector<std::string> ips;
@@ -70,15 +72,20 @@ void IpCn::parseIp(std::string &str, std::vector<std::string> & ips) {
 	std::smatch match;
 	const std::regex pattern("\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3}");
 
+	std::string ip;
+	Robert::MysqlDb mysql;
 	while (std::regex_search(str, match, pattern)) {
-		std::cout << match.str() << std::endl;
-		ips.push_back(match.str());
+		ip = match.str();
+		std::cout << ip << std::endl;
+		if(mysql.addIp(ip)) {
+			std::cout<<"add ip succ:"<<ip<<std::endl;
+		} else {
+			std::cout<<"add ip fail:"<<ip<<std::endl;
+		}
 		str = match.suffix().str();
 		std::cout << str << std::endl;
 
 	}
-	for (auto str : ips) {
-		std::cout << "\n ip:" << str << std::endl;
-	}
+
 }
 
