@@ -7,6 +7,7 @@ a cpp simple crawler project with cmake and c++11
 
 * libcurl 
 * jsoncpp
+* mysqlpp 
 
 # cmake and run
 
