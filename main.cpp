@@ -9,22 +9,22 @@
 #include <cstdio>
 
 #include "IpCn.h"
+#include "Logger.h"
 
 using namespace std;
 
 int main(int argc, const char **argv) {
 
-	std::cout << "main start \n";
-
+	Robert::Logger::info("main start \n");
 	try {
 		IpCn ipcn;
 		ipcn.fetchStart();
 
 	} catch (exception &e) {
-		std::cout << "in main catch exception " << e.what() << std::endl;
+		Robert::Logger::error("in main catch exception " << e.what());
 	}
 
-	std::cout << "main ended \n";
+	Robert::Logger::info("main ended \n");
 
 	return 0;
 }

@@ -11,6 +11,7 @@ link_directories("/usr/local/lib")
 include_directories("/usr/local/include")
 include_directories("/usr/local/Cellar/mysql++/3.2.3_2/include/mysql++")
 include_directories("/usr/local/Cellar/mysql@5.6/5.6.39/include/mysql")
+include_directories("/wwwroot/cpplib/spdlog/include/spdlog/")
 
 #  -ljsoncpp -lcurl
 link_libraries(curl jsoncpp mysqlpp)
